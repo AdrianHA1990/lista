@@ -34,7 +34,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
 
 
-ALLOWED_HOSTS = ["https://crud-etm1.onrender.com/"]
+ALLOWED_HOSTS = ["crud-etm1.onrender.com"]
 
 
 # Application definition
