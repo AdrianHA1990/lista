@@ -130,7 +130,7 @@ STATIC_URL = 'static/'
 #Tomar archivos del path static
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Redireccion Login
 
 LOGIN_REDIRECT_URL = '/'
