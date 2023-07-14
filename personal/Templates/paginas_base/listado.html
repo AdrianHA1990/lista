@@ -1,0 +1,75 @@
+{% extends 'base/base.html'%}
+
+{% block Titulo%} Lista del personal {% endblock Titulo %}
+
+{% block body %}
+
+<div class="card">
+  <div class="card-header">
+    <a name="btnuevoregistro" id="btnuevoregistro" class="btn btn-warning" href="{% url 'personal_app:registro' %}" role="button">Nuevo Registro</a>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Persona</h4>
+    <table class="table data">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido Materno</th>
+        <th>Apellido Paterno</th>
+        <th>Area</th>
+        <th>Estudios</th>
+        <th>Carrera</th>
+        <th>Foto</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for ps in Personal %}
+        {% if ps.estado == True %}
+          <tr>
+            <td>{{ ps.id }}</td>
+            <td>{{ ps.name }}</td>
+            <td>{{ ps.ap }}</td>
+            <td>{{ ps.am }}</td>
+            <td>{{ ps.area }}</td>
+            <td>{{ ps.estudio }}</td>
+            <td>{{ ps.Carrera }}</td>
+            {% if ps.foto.url %}
+              <td>
+                <img src="{{ ps.foto.url }}" width="60">
+              </td>
+            {% else %}
+              <td> Sin </td>
+            {% endif %}
+        <td>{{ ps.estado }}</td>
+        <td>
+          <a name="bteditar" id="bteditar" class="btn btn-success" href="{% url 'personal_app:editar' ps.id %}" role="button">Editar</a>
+          <a name="bteliminar" id="bteliminar" class="btn btn-danger" href="{% url 'personal_app:eliminar' ps.id %}" role="button">Eliminar</a>
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+
+{% endblock body %}
+
+{% block Datatables %}
+<script>
+    $(document).ready(function () {
+        $('.data').DataTable();
+    });
+</script>
+
+
+{% endblock Datatables %}
+
+{% block footer %}
+<span>Todos los derechos reservadod &copy; pagina lista de personal </span>
+{% endblock footer %}

@@ -1,0 +1,44 @@
+{% extends 'base/base.html'%}
+{% load crispy_forms_tags %}
+
+
+{% block Titulo%} Pagina Registro de Personas {% endblock Titulo %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        Nuevo Registro
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Registro del personal</h4>
+        <form action="" method="post" enctype="multipart/form-data" autocomplete="off">
+            {% csrf_token %}
+<!--            {{formulario|crispy}}-->
+            {{form.name|as_crispy_field}}
+            {{form.ap|as_crispy_field}}
+            {{form.am|as_crispy_field}}
+            {{form.estado|as_crispy_field}}
+
+            {% if form.foto.value %}
+            <img src="{{MEDIA_URL}}/imagenes/{{formulario.foto.value}}" alt="" width="80">
+            {% endif %}
+            {{form.foto|as_crispy_field}}
+            <br>
+            {{form.area|as_crispy_field}}
+            <br>
+            {{form.estudio|as_crispy_field}}
+            <br>
+            {{form.Carrera|as_crispy_field}}
+            <br>
+            {{form.usuario|as_crispy_field}}
+            <br>
+            <input name="btn-guardar" id="btn-guardar" class="btn btn-success" type="submit" value="Guardar">
+            <a name="btn-cancelar" id="btn-cancelar" class="btn btn-danger" href="{% url 'personal_app:lista'%}" role="button">Cancelar</a>
+
+        </form>
+
+    </div>
+        <div class="card-footer text-muted">
+    </div>
+</div>
+{% endblock body %}

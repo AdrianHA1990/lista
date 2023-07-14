@@ -1,0 +1,14 @@
+{% extends 'base/base.html'%}
+
+{% block Titulo%} Eliminar {% endblock Titulo %}
+
+{% block contenido %}
+
+    <h1> Eliminar Persona {{object.name}}</h1>
+    <form method="post" id="fr_eliminar"> {% csrf_token %}
+        <p> Deseas Confirmar </p>
+        <button type="submit" class="btn btn-danger"> Confirmar </button>
+    </form>
+    <a name="btcancel" id="btcancel" class="btn btn-primary" href="{% url 'personal_app:lista'%}" role="button">Cancelar</a>
+
+{% endblock contenido %}

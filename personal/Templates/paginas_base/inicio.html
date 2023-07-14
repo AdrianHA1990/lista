@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}
+
+Pagina Personal
+
+{% endblock titulo %}
+
+{% block body %}
+<div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Pagina del personal</h1>
+          <p>Esta es la pagina principal del personal; Donde podras registrar, actualizar, borrar, modificar y buscar informacion con respecto al personal de la empresa</p>
+          <p><a class="btn btn-primary btn-lg" href="{% url 'personal_app:lista' %}" role="button">Listado de personal</a></p>
+        </div>
+      </div>
+
+{% endblock body %}
+
+{% block footer %}
+<span>Todos los derechos reservadod &copy; pagina personal </span>
+{% endblock footer %}
