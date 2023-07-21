@@ -34,7 +34,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
 
 
-ALLOWED_HOSTS = ["crud-etm1.onrender.com", "localhost",]
+ALLOWED_HOSTS = ["crud-etm1.onrender.com"]
 
 
 # Application definition
@@ -88,14 +88,9 @@ WSGI_APPLICATION = 'crud_4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if not DEBUG: 
-    DATABASES = { 'default' : dj_database_url.parse(os.environ. get ( 'DATABASE_URL' ))} 
-else : 
-    DATABASES = { 
-        'default' : { 
-            'ENGINE' : 'django.db.backends. sqlite3' , 
-            'NOMBRE' : 'db.sqlite3' , 
-        }}
+
+DATABASES = { 'default' : dj_database_url.parse(os.environ. get ( 'DATABASE_URL' ))} 
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
